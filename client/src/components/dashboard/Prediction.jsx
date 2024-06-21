@@ -62,9 +62,30 @@ function Prediction() {
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
 
-    const handleRunPrediction = (video) => {
-        console.log('Running prediction on:', video);
-        // Ici, vous pouvez ajouter le code pour envoyer la vidéo pour prédiction
+    const handleRunPrediction = async (video) => {
+        
+        try {
+            // Créer un objet FormData et ajouter la vidéo téléchargée
+            const formData = new FormData();
+            const videoFile = new File([video], 'video.mp4', { type: 'video/mp4' });
+            formData.append('video', videoFile);
+    
+            // Envoyer la vidéo au serveur
+            const response = await fetch('http://127.0.0.1:5000/api/treat', {
+                method: 'POST',
+                body: formData,
+            });
+    
+            if (!response.ok) {
+                console.log('Network response was not ok ' + response.statusText);
+            }
+    
+            const blob = await response.blob();
+           const url = window.URL.createObjectURL(blob);
+    
+        } catch (error) {
+            console.error('Error running prediction:', error);
+        }
     };
     return (
     <section className = 'header h-full' >
