@@ -1,4 +1,4 @@
 Flask
-pickle5
+
 flask-cors
 opencv-python

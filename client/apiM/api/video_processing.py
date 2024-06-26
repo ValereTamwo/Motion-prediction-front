@@ -176,7 +176,7 @@ def write_video(predicted_sequences, output_file):
     seq_length, img_height, img_width, img_channels = predicted_sequences.shape
 
     # Définir le codec et créer l'objet VideoWriter
-    fourcc = cv2.VideoWriter_fourcc(*'XVID')
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     out = cv2.VideoWriter(output_file, fourcc, 5.0, (img_width, img_height))
 
     for j in range(seq_length):

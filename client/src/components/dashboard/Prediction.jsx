@@ -5,11 +5,15 @@ import video from "../../public/videos/justin.mp4"
 import west from "../../public/videos/west.mp4"
 import PredCard from './PredCard'
 
+
 import { usePage } from '../../contexts/Dashboardcontext';
 import NewPredictionModal from './PredictModal';
 import Empty from './Empty'
+import Modal from './VideoModal'
 
 function Prediction() {
+    const [video, setVideo] = useState({ title: '', url: '' });
+    const [Open, setOpen] = useState(false);
     const [videos, setvideo] = useState([
         {
             id: 1,
@@ -17,7 +21,7 @@ function Prediction() {
             duration: "10:30",
             description: "Description de la vidéo 1",
             thumbnail: "https://marketplace.canva.com/EAFAMirCsX4/2/0/1600w/canva-purple-creative-livestream-youtube-thumbnail-X2eVuOzURSM.jpg",
-            url: video,
+            url: "/home/valere/my_project_videos/fin/processed_video.mp4",
         },
         {
             id: 2,
@@ -62,9 +66,32 @@ function Prediction() {
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
 
-    const handleRunPrediction = (video) => {
-        console.log('Running prediction on:', video);
-        // Ici, vous pouvez ajouter le code pour envoyer la vidéo pour prédiction
+  const handleRunPrediction = async (video) => {
+        
+        try {
+            // Créer un objet FormData et ajouter la vidéo téléchargée
+            const formData = new FormData();
+            const videoFile = new File([video], 'video.mp4', { type: 'video/mp4' });
+            formData.append('video', videoFile);
+    
+            // Envoyer la vidéo au serveur
+            const response = await fetch('http://127.0.0.1:5000/api/treat', {
+                method: 'POST',
+                body: formData,
+            });
+    
+            if (!response.ok) {
+                console.log('Network response was not ok ' + response.statusText);
+            }
+    
+            const blob = await response.blob();
+           const url = window.URL.createObjectURL(blob);
+            setVideo({ title: 'Predicted Video', url });
+            setOpen(true);
+            console.log(video)
+        } catch (error) {
+            console.error('Error running prediction:', error);
+        }
     };
     return (
     <section className = 'header h-full' >
@@ -98,7 +125,11 @@ function Prediction() {
                         onClose={closeModal}
                         videos={videos}
                         onRunPrediction={handleRunPrediction}
-                    />
+                        open = {Open}
+                        setOpen = {setOpen} 
+                        video = {video}
+                            />
+                    <Modal open={Open} onClose={setOpen} video={video}/>
               </div>
               <div className='mr-4'> 
                   <Link to={'#'} className='text-blue-500 underline'>View Training Videos</Link>
