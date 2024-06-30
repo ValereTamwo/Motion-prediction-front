@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaTimes, FaSpinner } from 'react-icons/fa';
-import pred from '../../../src/video/final.mp4'
+import pred from '../../../src/video/finale.mp4'
 const NewPredictionModal = ({ isOpen, onClose, videos, onSelectVideo }) => {
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [uploadedVideo, setUploadedVideo] = useState(null);

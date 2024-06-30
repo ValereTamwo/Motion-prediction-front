@@ -15,14 +15,14 @@ def handle_request():
     if video:
         home_dir = os.path.expanduser("/home/valere/Documents/Memories/client/apiM/")
         project_dir = os.path.join(home_dir, 'my_project_videos')
-        model=os.path.join(project_dir,'model3 (10).keras')
+        model=os.path.join(project_dir,'model_after_aug_2 (2).keras')
         os.makedirs(project_dir, exist_ok=True)
         video_path = os.path.join(project_dir, video.filename)
         video.save(video_path)  # Enregistre le fichier vidéo temporaire
         output_folder = os.path.join(project_dir, 'pred')  # Spécifie le chemin complet où vous souhaitez enregistrer le fichier
         output = os.path.join(project_dir, 'pred2')
-        temp = '/home/valere/my_project_videos/fin/processed_video.mp4'
-        final = '/home/valere/Documents/Memories/client/src/video/final.mp4'
+        temp = '/home/valere/my_project_videos/fin/model_pred.mp4'
+        final = '/home/valere/Documents/Memories/client/src/video/finale.mp4'
         final2 = '/home/valere/Documents/Memories/client/src/video/pred/final.mp4'
         
     
