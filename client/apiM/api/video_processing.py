@@ -95,10 +95,11 @@ def load_dataset(data_dir, num_videos=171,target_size=(128, 128),num2=300):
 
         input_sequence = load_sequences_from_folder(input_frames_dir, target_size,num_frames=59)
         target_sequence = load_sequences_from_folder(target_frame_dir, target_size,num_frames=59)
-
+        
         input_sequences.append(input_sequence)
         target_sequences.append(target_sequence)
-
+    input_sequences = [seq.astype('float32') / 255.0 for seq in input_sequences]
+    target_sequences = [seq.astype('float32') / 255.0 for seq in target_sequences]
     return np.array(input_sequences), np.array(target_sequences)
 def store_predicted_frames(predicted_sequence, output_path):
     if not os.path.exists(output_path):

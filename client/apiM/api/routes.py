@@ -15,7 +15,7 @@ def handle_request():
     if video:
         home_dir = os.path.expanduser("/home/valere/Documents/Memories/client/apiM/")
         project_dir = os.path.join(home_dir, 'my_project_videos')
-        model=os.path.join(project_dir,'model_after_aug_2 (2).keras')
+        model=os.path.join(project_dir,'model4.keras')
         os.makedirs(project_dir, exist_ok=True)
         video_path = os.path.join(project_dir, video.filename)
         video.save(video_path)  # Enregistre le fichier vidéo temporaire
@@ -35,7 +35,7 @@ def handle_request():
 
         data = load_dataset(path)
         print('jeffectue ma predictions ')
-        predictions =make_prediction(model=model,data=data)
+        predictions =make_prediction(model=model,data=data[0])
         print('je stoke les frames de la predctions ')
         path2 = store_predicted_frames(data, output)
         print('je genere une videos avec les frames ')
