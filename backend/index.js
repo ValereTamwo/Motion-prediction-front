@@ -10,6 +10,7 @@ const port = process.env.PORT || 3000;
 //middleware
 app.use(handleError)
 app.use(express.json());
+app.use('/uploads', express.static('uploads'));
 app.use(express.urlencoded())
 app.use(AppRouter)
 
