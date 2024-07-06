@@ -1,4 +1,4 @@
-import { addPredict, getAllPredictions, getPredictionById } from '../services/predictionsServices.js';
+import { addPredict, getAllPredictions } from '../services/predictionsServices.js';
 import { createCustomError } from '../error/Customerror.js';
 
 export async function uploadPrediction(req, res, next) {
@@ -28,16 +28,5 @@ export async function getAllPrediction(req, res, next) {
   }
 }
 
-export async function getPredictionByid(req, res, next) {
-  const { id } = req.params;
 
-  try {
-    const prediction = await getPredictionById(id);
-    if (!prediction) {
-      throw createCustomError(`Prediction with ID ${id} not found`, 404);
-    }
-    res.status(200).json(prediction);
-  } catch (error) {
-    next(error);
-  }
-}
+
