@@ -52,7 +52,7 @@ const NewPredictionModal = ({ isOpen, onClose, videos, onRunPrediction }) => {
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white p-4 rounded-lg max-w-2xl w-full relative">
-                <button className="absolute top-2 right-2 text-red-500" onClick={onClose}>
+                <button className="absolute top-2 right-2 text-red-500" onClick={() => { onClose(); setOpen(false)}}>
                     <FaTimes size={24} />
                 </button>
                 <h2 className="text-2xl font-bold mb-4">Nouvelle Prédiction</h2>

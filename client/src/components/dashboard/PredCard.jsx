@@ -28,9 +28,6 @@ const PredCard = ({ video }) => {
                
             </div>
             <div className="px-6 pt-4 pb-2 flex justify-between items-center">
-                <Link className="text-blue-500 underline">
-                    Video Initiale
-                </Link>
                 <button className='flex justify-end'>
                     <FaTrash className="mr-2" />
                 </button>
