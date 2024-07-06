@@ -18,7 +18,7 @@ def handle_request():
 
         home_dir = os.path.expanduser("/home/valere/Documents/Memories/client/apiM/")
         project_dir = os.path.join(home_dir, 'my_project_videos')
-        model=os.path.join(project_dir,'model4.keras')
+        model=os.path.join(project_dir,'minit.keras')
         os.makedirs(project_dir, exist_ok=True)
         video_path = os.path.join(project_dir, video.filename)
         video.save(video_path)  # Enregistre le fichier vidéo temporaire
