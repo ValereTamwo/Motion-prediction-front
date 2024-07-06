@@ -31,26 +31,26 @@ function Prediction() {
 
     const handleRunPrediction = async (video) => {
         console.log(video,'czegzwez')
-        // try {
-        //     const formData = new FormData();
-        //     const videoFile = new File([video], 'video.mp4', { type: 'video/mp4' });
-        //     formData.append('video', videoFile);
+        try {
+            const formData = new FormData();
+            const videoFile = new File([video], 'video.mp4', { type: 'video/mp4' });
+            formData.append('video', videoFile);
 
-        //     const response = await fetch('http://127.0.0.1:5000/api/treat', {
-        //         method: 'POST',
-        //         body: formData,
-        //     });
+            const response = await fetch('http://127.0.0.1:5000/api/treat', {
+                method: 'POST',
+                body: formData,
+            });
 
-        //     if (!response.ok) {
-        //         console.log('Network response was not ok ' + response.statusText);
-        //     }
+            if (!response.ok) {
+                console.log('Network response was not ok ' + response.statusText);
+            }
 
             
 
-        //     console.log('Prediction result URL:', url);
-        // } catch (error) {
-        //     console.error('Error running prediction:', error);
-        // }
+           // console.log('Prediction result URL:', url);
+        } catch (error) {
+            console.error('Error running prediction:', error);
+        }
     };
 
     return (

@@ -16,17 +16,18 @@ def handle_request():
     print("Valeur de video:", video)
     if video:
 
-        home_dir = os.path.expanduser("/home/valere/Documents/Memories/client/apiM/")
+        home_dir = os.path.expanduser("~/Machine/Motion-prediction-front/client/apiM")
         project_dir = os.path.join(home_dir, 'my_project_videos')
-        model=os.path.join(project_dir,'minit.keras')
+        model=os.path.join(project_dir,'model3 (10).keras')
         os.makedirs(project_dir, exist_ok=True)
         video_path = os.path.join(project_dir, video.filename)
         video.save(video_path)  # Enregistre le fichier vidéo temporaire
         output_folder = os.path.join(project_dir, 'pred')  # Spécifie le chemin complet où vous souhaitez enregistrer le fichier
         output = os.path.join(project_dir, 'pred2')
-        temp = '/home/valere/my_project_videos/fin/model_pred.mp4'
-        final = '/home/valere/Documents/Memories/client/src/video/finale.mp4'
-        final2 = '/home/valere/Documents/Memories/client/src/video/pred/final.mp4'
+        temp = os.path.join(project_dir,'fin/model_pred.mp4')
+        print(temp)
+        final = '/home/fideline/Machine/Motion-prediction-front/client/src/video/finale.mp4'
+        final2 = '~/Machine learning/Motion-prediction-front/client/src/video/pred/final.mp4'
         
     
         

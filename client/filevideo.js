@@ -33,7 +33,7 @@ app.post('/api/upload', upload.single('video'), (req, res) => {
         return res.status(400).json({ error: 'No file uploaded' });
     }
 
-    res.json({ url: `/home/valere/Documents/Memories/client/videos/predict/${req.file.filename}` });
+    res.json({ url: `~/Machine learning/Motion-prediction-front/client/videos/predict/${req.file.filename}` });
 });
 
 app.listen(port, () => {
