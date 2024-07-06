@@ -1,0 +1,101 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "MotionPrediction",
+    "collectionId": "32266e86-7a84-4ef8-a732-1b385bfacf96",
+    "dateExported": "2024-07-05T11:35:03.567Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "bd573548-febe-4043-bf6f-602220361cd9",
+            "colId": "32266e86-7a84-4ef8-a732-1b385bfacf96",
+            "containerId": "",
+            "name": "localhost:3000/video/all",
+            "url": "localhost:3000/video/all",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-07-05T11:33:01.044Z",
+            "modified": "2024-07-05T11:33:01.044Z",
+            "headers": []
+        },
+        {
+            "_id": "f60a9a9b-b0cf-4688-87a5-aef92284fda3",
+            "colId": "32266e86-7a84-4ef8-a732-1b385bfacf96",
+            "containerId": "",
+            "name": "localhost:3000/video/upload",
+            "url": "localhost:3000/video/upload",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-07-05T11:33:10.348Z",
+            "modified": "2024-07-05T11:33:10.348Z",
+            "headers": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "user_id",
+                        "value": "1"
+                    },
+                    {
+                        "name": "title",
+                        "value": "test2"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "video",
+                        "value": "/media/fideline/Nouveau nom/video2/V2.mp4"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "14bb258a-7768-4ec6-8c75-5bdfe5d3debc",
+            "colId": "32266e86-7a84-4ef8-a732-1b385bfacf96",
+            "containerId": "",
+            "name": "localhost:3000/user/login",
+            "url": "localhost:3000/user/login",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-07-05T11:33:19.954Z",
+            "modified": "2024-07-05T11:33:19.954Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"ozSszszeDU_d\",\n  \"password\": \"securePassword123\"\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "47c6cabd-2e5e-4627-a7ad-c49bf0f195d4",
+            "colId": "32266e86-7a84-4ef8-a732-1b385bfacf96",
+            "containerId": "",
+            "name": "localhost:3000/user<",
+            "url": "localhost:3000/user/register",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-07-05T11:33:28.125Z",
+            "modified": "2024-07-05T11:33:28.125Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"ozSszszeDU_d\",\n  \"email\": \"jSrdunDessJ.doeeamle.com\",\n  \"password\": \"securePassword123\"\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "16996991-64ed-42ac-981a-4c359aebf15e",
+            "colId": "32266e86-7a84-4ef8-a732-1b385bfacf96",
+            "containerId": "",
+            "name": "localhost:3000/",
+            "url": "localhost:3000/",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-07-05T11:33:36.192Z",
+            "modified": "2024-07-05T11:33:36.192Z",
+            "headers": []
+        }
+    ],
+    "ref": "PQ-O85Xfdesp5vR57PiH9IDsTx3H1uLhSGR1BFQdM6DbpR9jm81ZdNuji0MYO9yjxQVVPxfFV7PopbUD-cxTQg"
+}

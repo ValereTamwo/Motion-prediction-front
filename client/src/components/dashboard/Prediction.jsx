@@ -67,6 +67,7 @@ function Prediction() {
     const closeModal = () => setIsModalOpen(false);
 
   const handleRunPrediction = async (video) => {
+
         
         try {
             // Créer un objet FormData et ajouter la vidéo téléchargée

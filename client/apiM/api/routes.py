@@ -1,5 +1,6 @@
 import os
 from flask import request, jsonify, send_file, current_app as app
+from dotenv import load_dotenv
 from .video_processing import process_video, load_dataset, store_predicted_frames, write_video, clean_repertoire
 from .utils import setup_logging
 from .predict import make_prediction
@@ -7,12 +8,14 @@ import subprocess
 import shutil
 from moviepy.editor import VideoFileClip
 setup_logging()
+load_dotenv()
 
 @app.route('/api/treat', methods=['POST'])
 def handle_request():
     video = request.files.get('video')  # Récupère la vidéo envoyée dans la requête
     print("Valeur de video:", video)
     if video:
+
         home_dir = os.path.expanduser("/home/valere/Documents/Memories/client/apiM/")
         project_dir = os.path.join(home_dir, 'my_project_videos')
         model=os.path.join(project_dir,'model4.keras')
@@ -30,12 +33,13 @@ def handle_request():
         print('je fais le traitement de la video')
         path = process_video(video_path, output_folder)
 
-
         print('je charge les farmes de ma videos ')
 
         data = load_dataset(path)
         print('jeffectue ma predictions ')
+
         predictions =make_prediction(model=model,data=data[0])
+
         print('je stoke les frames de la predctions ')
         path2 = store_predicted_frames(data, output)
         print('je genere une videos avec les frames ')
