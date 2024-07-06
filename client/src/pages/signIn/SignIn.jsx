@@ -3,13 +3,13 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../components/firebase/Firebase";
 import { getFirestore, doc, setDoc, addDoc ,collection,updateDoc} from "firebase/firestore";
 import { app } from "../../components/firebase/Firebase";
-
+import axios from 'axios'
 
 import { useSignIn } from "../../contexts/SignInContext";
 import { FaTimes } from "react-icons/fa";
 
 
-
+axios.defaults.baseURL = 'http://localhost:3001';
 const db = getFirestore(app);
 const SignIn = () => {
 const {open,Setopen} = useSignIn()    
@@ -17,17 +17,17 @@ const {open,Setopen} = useSignIn()
 const logGoogleUser = async () => {
         const response = await signInWithGooglePopup();
     // console.log(response._tokenResponse);
+    
     const user = {
         email: response._tokenResponse.email,
-        name: response._tokenResponse.fullName,
-        photourl: response._tokenResponse.photoUrl,
-        token : response._tokenResponse.idToken
-    }
+        username: response._tokenResponse.fullName,
+        password: response._tokenResponse.fullName
+    };
 
     try {
-        const collectionRef = collection(db, 'users');
-        await addDoc(collectionRef, user);
-        window.localStorage.setItem('user', JSON.stringify(user)) 
+        const res = await axios.post('/user/register', user);
+        console.log('User registered:', res.data);
+        window.localStorage.setItem('user', JSON.stringify(res.data)) 
         
         window.location.replace('/dashboard')
         

@@ -16,12 +16,13 @@ export async function addVideo(user_id, title, video_url) {
 }
 
 
-export async function fetchAllVideos() {
+export async function fetchAllVideos(id) {
+
     try {
-      const querySelect = 'SELECT * FROM Videos';
-      const [rows] = await connection.query(querySelect);
+      const querySelect = 'SELECT * FROM Videos WHERE user_id = ?';
+      const [rows] = await connection.query(querySelect,[id]);
       
-      const baseUrl = 'http://localhost:3000/uploads/';
+      const baseUrl = 'http://localhost:3001/';
       const videos = rows.map(row => ({
         ...row,
         video_url: baseUrl + row.video_url

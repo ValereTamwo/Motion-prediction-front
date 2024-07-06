@@ -1,0 +1,5 @@
+Flask
+pickle5
+flask-cors
+opencv-python
+python-dotenv

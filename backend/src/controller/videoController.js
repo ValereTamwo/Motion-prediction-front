@@ -18,8 +18,9 @@ export async function uploadVideo(req, res, next) {
 }
 
 export async function getAllVideos(req, res, next) {
+    const {id} = req.params
     try {
-      const videos = await fetchAllVideos();
+      const videos = await fetchAllVideos(id);
       res.status(200).json(videos);
     } catch (error) {
       next(error);
